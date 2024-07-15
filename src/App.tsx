@@ -9,6 +9,7 @@ import {
 import type { MenuProps } from "antd";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 import "./App.css";
+import { Link, Outlet } from "react-router-dom";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -29,7 +30,10 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem("Option 1", "1", <PieChartOutlined />),
+  getItem("基础概念", "1", <PieChartOutlined />, [
+    getItem(<Link to={"/mapView"}>MapView</Link>, "MapView"),
+    getItem(<Link to={"/sceneView"}>SceneView</Link>, "SceneView"),
+  ]),
   getItem("Option 2", "2", <DesktopOutlined />),
   getItem("User", "sub1", <UserOutlined />, [
     getItem("Tom", "3"),
@@ -68,17 +72,18 @@ const App: React.FC = () => {
         <Header style={{ padding: 0, background: colorBgContainer }} />
         <Content style={{ margin: "0 16px" }}>
           <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            {/* <Breadcrumb.Item>User</Breadcrumb.Item>
+            <Breadcrumb.Item>Bill</Breadcrumb.Item> */}
           </Breadcrumb>
           <div
             style={{
-              padding: 24,
+              height: "calc(100% - 32px)",
+              padding: 12,
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
             }}
           >
-            Bill is a cat.
+            <Outlet />
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
