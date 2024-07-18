@@ -7,6 +7,7 @@ import "./index.css";
 import MapViewDemo from "./pages/mapView/index.tsx";
 import SceneView from "./pages/sceneView/index.tsx";
 import TileLayer from "./pages/tileLayer/index.tsx";
+import WebTileLayer from "./pages/webTileLayer/index.tsx";
 
 esriConfig.assetsPath = "./assets";
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "tileLayer",
         element: <TileLayer />,
+      },
+      {
+        path: "WebTileLayer",
+        element:<WebTileLayer/>
       },
     ],
   },

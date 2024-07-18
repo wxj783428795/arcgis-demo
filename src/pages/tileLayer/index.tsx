@@ -16,7 +16,7 @@ const TileLayerDemo = () => {
         ],
       }),
     });
-    var view = new MapView({
+    const view = new MapView({
       container: ref.current!,
       map: myMap,
       center: [0, 0], // 地图中心点

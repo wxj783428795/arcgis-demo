@@ -36,7 +36,7 @@ const items: MenuItem[] = [
   ]),
   getItem("图层", "2", <DesktopOutlined />, [
     getItem(<Link to={"/tileLayer"}>TileLayer</Link>, "TileLayer"),
-    // getItem(<Link to={"/sceneView"}>SceneView</Link>, "SceneView"),
+    getItem(<Link to={"/webTileLayer"}>WebTileLayer</Link>, "WebTileLayer"),
   ]),
   getItem("User", "sub1", <UserOutlined />, [
     getItem("Tom", "3"),
