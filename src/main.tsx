@@ -6,6 +6,8 @@ import App from "./App.tsx";
 import "./index.css";
 import MapViewDemo from "./pages/mapView/index.tsx";
 import SceneView from "./pages/sceneView/index.tsx";
+import TileLayer from "./pages/tileLayer/index.tsx";
+
 esriConfig.assetsPath = "./assets";
 
 const router = createBrowserRouter([
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "sceneView",
         element: <SceneView />,
+      },
+      {
+        path: "tileLayer",
+        element: <TileLayer />,
       },
     ],
   },

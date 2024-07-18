@@ -34,7 +34,10 @@ const items: MenuItem[] = [
     getItem(<Link to={"/mapView"}>MapView</Link>, "MapView"),
     getItem(<Link to={"/sceneView"}>SceneView</Link>, "SceneView"),
   ]),
-  getItem("Option 2", "2", <DesktopOutlined />),
+  getItem("图层", "2", <DesktopOutlined />, [
+    getItem(<Link to={"/tileLayer"}>TileLayer</Link>, "TileLayer"),
+    // getItem(<Link to={"/sceneView"}>SceneView</Link>, "SceneView"),
+  ]),
   getItem("User", "sub1", <UserOutlined />, [
     getItem("Tom", "3"),
     getItem("Bill", "4"),
