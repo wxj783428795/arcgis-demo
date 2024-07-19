@@ -2,30 +2,36 @@ import React, { useEffect, useRef } from "react";
 import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
 import Basemap from "@arcgis/core/Basemap";
-import WMTSLayer from "@arcgis/core/layers/WMTSLayer";
-const tk = 'a3e540b069a7576e2130a915a69b1d37'
+import WebTileLayer from "@arcgis/core/layers/WebTileLayer";
+const tk = "e3f3bfcc47fa497029d67a236c142af9";
 const WebTileLayerDemo = () => {
-    const ref = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-        const wmtsLayer = new WMTSLayer({
-            url:`http://t0.tianditu.gov.cn/vec_c/wmts?tk=${tk}`
-        })
-      const myMap = new Map({
-        basemap: new Basemap({
-          baseLayers: [
-            wmtsLayer
-          ],
-        }),
-      });
-      const view = new MapView({
-        container: ref.current!,
-        map: myMap,
-        center: [0, 0], // 地图中心点
-        zoom: 3, // 缩放级别
-      });
-    }, []);
-  
-    return <div ref={ref} style={{ width: "100%", height: "100%" }}></div>;
-}
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    //底图图层
+    const wmtsLayerBase = new WebTileLayer({
+      urlTemplate: `http://{subDomain}.tianditu.gov.cn/DataServer?T=vec_w&x={col}&y={row}&l={level}&tk=${tk}`,
+      subDomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
+    });
+    //标注图层
+    const wmtsLayerCav = new WebTileLayer({
+      urlTemplate: `http://{subDomain}.tianditu.gov.cn/DataServer?T=cva_w&x={col}&y={row}&l={level}&tk=${tk}`,
+      subDomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
+    });
+    const myMap = new Map({
+      basemap: new Basemap({
+        baseLayers: [wmtsLayerBase],
+        referenceLayers: [wmtsLayerCav],
+      }),
+    });
+    const view = new MapView({
+      container: ref.current!,
+      map: myMap,
+      center: [0, 0], // 地图中心点
+      zoom: 3, // 缩放级别
+    });
+  }, []);
 
-export default WebTileLayerDemo
+  return <div ref={ref} style={{ width: "100%", height: "100%" }}></div>;
+};
+
+export default WebTileLayerDemo;
