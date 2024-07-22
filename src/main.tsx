@@ -8,8 +8,12 @@ import MapViewDemo from "./pages/mapView/index.tsx";
 import SceneView from "./pages/sceneView/index.tsx";
 import TileLayer from "./pages/tileLayer/index.tsx";
 import WebTileLayer from "./pages/webTileLayer/index.tsx";
+import FeatureLayerServer from "./pages/featureLayerServer/index.tsx";
+import FeatureLayerClient from "./pages/featureLayerClient/index.tsx";
+import GraphicsLayer from "./pages/graphicsLayer";
+import ChinaDemo from "./pages/china/index.tsx";
 
-esriConfig.assetsPath = "./assets";
+esriConfig.assetsPath = "/assets";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +34,23 @@ const router = createBrowserRouter([
       },
       {
         path: "WebTileLayer",
-        element:<WebTileLayer/>
+        element: <WebTileLayer />,
+      },
+      {
+        path: "featureLayer/server",
+        element: <FeatureLayerServer />,
+      },
+      {
+        path: "featureLayer/client",
+        element: <FeatureLayerClient />,
+      },
+      {
+        path: "graphicsLayer",
+        element: <GraphicsLayer />,
+      },
+      {
+        path: "china",
+        element: <ChinaDemo />,
       },
     ],
   },

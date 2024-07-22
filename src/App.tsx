@@ -37,7 +37,19 @@ const items: MenuItem[] = [
   getItem("图层", "2", <DesktopOutlined />, [
     getItem(<Link to={"/tileLayer"}>TileLayer</Link>, "TileLayer"),
     getItem(<Link to={"/webTileLayer"}>WebTileLayer</Link>, "WebTileLayer"),
+    getItem("FeatureLayer", "FeatureLayer", "", [
+      getItem(
+        <Link to={"/featureLayer/server"}>FeatureLayer-Server</Link>,
+        "FeatureLayerServer"
+      ),
+      getItem(
+        <Link to={"/featureLayer/client"}>FeatureLayer-Client</Link>,
+        "FeatureLayerClient"
+      ),
+    ]),
+    getItem(<Link to={"/graphicsLayer"}>GraphicsLayer</Link>, "GraphicsLayer"),
   ]),
+  getItem(<Link to={"/china"}>ChinaDemo</Link>, "china", <FileOutlined />),
   getItem("User", "sub1", <UserOutlined />, [
     getItem("Tom", "3"),
     getItem("Bill", "4"),
@@ -47,7 +59,6 @@ const items: MenuItem[] = [
     getItem("Team 1", "6"),
     getItem("Team 2", "8"),
   ]),
-  getItem("Files", "9", <FileOutlined />),
 ];
 
 const App: React.FC = () => {
