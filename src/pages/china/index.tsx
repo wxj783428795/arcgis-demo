@@ -76,7 +76,7 @@ const addDistrictLayer = (
   adcode: string,
   view: __esri.SceneView
 ): __esri.GeoJSONLayer => {
-  let geojsonlayer = new GeoJSONLayer({
+  const geojsonlayer = new GeoJSONLayer({
     url: `/geojson/${adcode}.json`,
     id: adcode,
     renderer: new SimpleRenderer({

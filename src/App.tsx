@@ -3,8 +3,6 @@ import {
   DesktopOutlined,
   FileOutlined,
   PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
@@ -50,15 +48,7 @@ const items: MenuItem[] = [
     getItem(<Link to={"/graphicsLayer"}>GraphicsLayer</Link>, "GraphicsLayer"),
   ]),
   getItem(<Link to={"/china"}>ChinaDemo</Link>, "china", <FileOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
-  ]),
+  getItem(<Link to={"/industry"}>industry</Link>, "industry", <FileOutlined />),
 ];
 
 const App: React.FC = () => {
