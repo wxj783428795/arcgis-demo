@@ -5,6 +5,7 @@ import Map from "@arcgis/core/Map";
 const SceneViewDemo = () => {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    
     const myMap = new Map({
       //   basemap: "streets-vector", //底图，string｜BaseMap
       basemap: "satellite",

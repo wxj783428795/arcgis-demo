@@ -1,0 +1,7 @@
+.action-bar-container {
+  display: none !important;
+}
+.esri-popup__main-container {
+  width: 650px !important;
+  max-height: unset !important;
+}
